@@ -3,7 +3,6 @@ package com.mask.masking.entities;
 import java.util.Arrays;
 
 import com.mask.masking.utility.MaskUtility;
-import com.mask.masking.utility.Masking;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

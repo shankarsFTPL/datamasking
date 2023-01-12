@@ -1,6 +1,5 @@
 package com.mask.masking.model;
 
-import java.util.Arrays;
 
 import com.mask.masking.utility.MaskUtility;
 

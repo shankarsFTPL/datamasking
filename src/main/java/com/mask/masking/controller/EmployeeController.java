@@ -1,11 +1,15 @@
 package com.mask.masking.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import com.mask.masking.entities.Employee;
 import com.mask.masking.model.EmployeeSalaryPojo;
@@ -38,15 +42,20 @@ public class EmployeeController {
 		return empService.getEmployeeSalaries();
 	}
 	
-	@GetMapping(value = "empList")
+	@GetMapping(value = "/empList")
 	public List<Employee> allEmployeeList(){
-		List<Employee>allList=empService.employeeList();
-		return allList;
+		return empService.employeeList();
 	}
 	
-	@GetMapping(value = "empListHibCr")
+	@GetMapping(value = "/empListHiCri")
 	public List<Employee> getAllList(){
-		List<Employee>allList = empService.allEmployeeList();
-		return allList;
+		return empService.allEmployeeList();
+	}
+	
+	@GetMapping(value = "/empListPage")
+	public ResponseEntity<Map<String, Object>> employeeDetails(@RequestParam int page, @RequestParam int size){
+		
+		return empService.getEmployeeDetails(page,size);
+		
 	}
 }
